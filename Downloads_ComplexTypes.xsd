@@ -1,0 +1,68 @@
+﻿<xs:schema targetNamespace="http://schemas.ollon.us/downloader"
+           xmlns="http://schemas.ollon.us/downloader"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified"
+           xmlns:types="http://schemas.ollon.us/types"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:import namespace="http://schemas.ollon.us/types" schemaLocation="Types.xsd" />
+
+    <xs:include schemaLocation="Downloads_Elements.xsd" />
+    <xs:include schemaLocation="Downloads_SimpleTypes.xsd" />
+
+    <xs:complexType name="Downloads">
+        <xs:choice minOccurs="0">
+            <xs:sequence maxOccurs="unbounded">
+                <xs:element ref="Download" />
+            </xs:sequence>
+        </xs:choice>
+    </xs:complexType>
+
+    <xs:complexType name="Download">
+        <xs:sequence>
+            <xs:choice minOccurs="0">
+                <xs:sequence>
+                    <xs:element ref="Type"/>
+                    <xs:element ref="File"/>
+                    <xs:element ref="FileSize" minOccurs="0"/>
+                    <xs:element ref="FileVersion" minOccurs="0" />
+                    <xs:element ref="URL"/>
+                    <xs:element ref="Extract" minOccurs="0" />
+                    <xs:choice minOccurs="0" maxOccurs="unbounded">
+                        <xs:element ref="Run" />
+                    </xs:choice>
+                </xs:sequence>
+            </xs:choice>
+        </xs:sequence>
+        <xs:attribute name="Name" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>The name of the download, which must be unique.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Category" type="Category" use="optional" />
+        <xs:attribute name="SubCategory" type="SubCategory" use="optional" />
+    </xs:complexType>
+
+
+    <xs:complexType name="Run">
+        <xs:sequence>
+            <xs:element ref="ExistingFile" />
+            <xs:element ref="FileVersion" />
+            <xs:element ref="Command" />
+            <xs:element ref="Argument" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Extract">
+        <xs:sequence>
+            <xs:element name="Type" type="ExtractType">
+                <xs:annotation>
+                    <xs:documentation>The type of extract, e.g., ZIP, RAR, etc.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="ExistingFile" />
+            <xs:element ref="FileVersion" />
+        </xs:sequence>
+    </xs:complexType>
+    
+</xs:schema>

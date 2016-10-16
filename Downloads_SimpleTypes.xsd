@@ -1,0 +1,64 @@
+﻿<xs:schema targetNamespace="http://schemas.ollon.us/downloader"
+           xmlns="http://schemas.ollon.us/downloader"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified"
+           xmlns:types="http://schemas.ollon.us/types"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:import namespace="http://schemas.ollon.us/types" schemaLocation="Types.xsd" />
+
+    <xs:simpleType name="DownloadType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Download">
+                <xs:annotation>
+                    <xs:documentation>Download with no actions to complete once it is finished</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="DownloadRun">
+                <xs:annotation>
+                    <xs:documentation>Download that has post download actions to run</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="DownloadExtract">
+                <xs:annotation>
+                    <xs:documentation>Download that must be extracted once it is complete</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="DownloadMount">
+                <xs:annotation>
+                    <xs:documentation>Download that requires mounting a disk image and copying the contents</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="Category">
+        <xs:restriction base="types:SimpleIdentifier">
+            <xs:enumeration value="None" />
+            <xs:enumeration value="OperatingSystems"/>
+            <xs:enumeration value="Applications" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="SubCategory">
+        <xs:restriction base="types:SimpleIdentifier">
+            <xs:enumeration value="None" />
+            <xs:enumeration value="Server"/>
+            <xs:enumeration value="Client"/>
+            <xs:enumeration value="Microsoft" />
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="ExtractType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="ZIP" />
+            <xs:enumeration value="RAR" />
+            <xs:enumeration value="7Z" />
+            <xs:enumeration value="TAR" />
+        </xs:restriction>
+    </xs:simpleType>
+
+
+
+
+</xs:schema>

@@ -1,3 +1,13 @@
-<Downloads>
-  
+﻿<Downloads
+    xmlns="http://schemas.ollon.us/downloader" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://schemas.ollon.us/downloader Downloads.xsd">
+
+    <Download Name="Microsoft Hyper-V Server 2016" Category="OperatingSystems" SubCategory="Server">
+        <Type>DownloadMount</Type>
+        <File>HyperVServer2016.iso</File>
+        <FileSize>2765973504</FileSize>
+        <URL>http://care.dlservice.microsoft.com/dl/download/E/4/E/E4EFC175-3D2D-49A6-B6D9-1B389887F764/14393.0.160916-1106.RS1_REFRESH_SERVERHYPERCORE_OEM_X64FRE_EN-US.ISO</URL>
+    </Download>
+    
 </Downloads>

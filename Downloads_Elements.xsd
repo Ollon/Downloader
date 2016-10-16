@@ -1,0 +1,79 @@
+﻿<xs:schema targetNamespace="http://schemas.ollon.us/downloader"
+           xmlns="http://schemas.ollon.us/downloader"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified"
+           xmlns:types="http://schemas.ollon.us/types"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:import namespace="http://schemas.ollon.us/types" schemaLocation="Types.xsd" />
+    
+    <xs:include schemaLocation="Downloads.xsd"/>
+
+    <xs:element name="Downloads" type="Downloads">
+        <xs:annotation>
+            <xs:documentation>Represents a collection of downloads</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    
+    <xs:element name="Download" type="Download">
+        <xs:annotation>
+            <xs:documentation>Represents a single downloadable file</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    
+    <xs:element name="Type" type="DownloadType">
+        <xs:annotation>
+            <xs:documentation>The type of download, e.g., Download.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    
+    <xs:element name="Run" type="Run">
+        <xs:annotation>
+            <xs:documentation>Specifies a post download action to run</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    
+    <xs:element name="Extract" type="Extract">
+        <xs:annotation>
+            <xs:documentation>Specifies a post download action to run</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    
+    <xs:element name="File" type="xs:string">
+        <xs:annotation>
+            <xs:documentation>The file name for the download</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="FileSize" type="xs:positiveInteger">
+        <xs:annotation>
+            <xs:documentation>The size of the file in bytes</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="FileVersion" type="types:FourPartVersionType">
+        <xs:annotation>
+            <xs:documentation>The version, e.g., 1.0.0.0, of the file</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="URL" type="xs:anyURI">
+        <xs:annotation>
+            <xs:documentation>The web address for the download</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="ExistingFile" type="xs:string">
+        <xs:annotation>
+            <xs:documentation>This is a file that should exist in the root folder after the download finishes extraction</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="Command" type="xs:string">
+        <xs:annotation>
+            <xs:documentation>The executable that will accept command arguments, e.g., cmd.exe</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="Argument" type="xs:string">
+        <xs:annotation>
+            <xs:documentation>The argument for the command, e.g., /c ipconfig</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+
+    
+</xs:schema>

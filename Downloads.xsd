@@ -1,0 +1,14 @@
+﻿<xs:schema targetNamespace="http://schemas.ollon.us/downloader"
+           xmlns="http://schemas.ollon.us/downloader"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified"
+           xmlns:types="http://schemas.ollon.us/types"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:import namespace="http://schemas.ollon.us/types" schemaLocation="Types.xsd" />
+
+    <xs:include schemaLocation="Downloads_ComplexTypes.xsd" />
+    <xs:include schemaLocation="Downloads_Elements.xsd" />
+    <xs:include schemaLocation="Downloads_SimpleTypes.xsd" />
+
+</xs:schema>
